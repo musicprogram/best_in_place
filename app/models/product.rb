@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+	belongs_to :category
+
 	validates :name, presence: true, uniqueness: true
 
 	validate :validacion_personalized

@@ -15,7 +15,8 @@
     <% @products.each do |product| %>
       <tr class="tr">
         <td><%= best_in_place product, :name, :as => :input  %></td>
-        <td><%= best_in_place product, :price, :as => :input , :display_with => :number_to_currency %></td>
+        <td><%= best_in_place product, :price, :as => :input , :display_with => :number_to_currency %></td>            
+        <td><%= best_in_place product, :category_id, :type => :select, :collection => Category.all.map { |i| [i.id, i.name] } %></td>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
